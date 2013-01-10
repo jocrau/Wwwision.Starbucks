@@ -1,0 +1,43 @@
+#                                                                        #
+# Routes configuration                                                   #
+#                                                                        #
+# These are the SubRoutes for the TYPO3 Flow package "Wwwision.Starbucks"#
+# Include them like this on *top* of your main Configuration/Routes.yaml #
+# -
+#  name: 'Wwwision.Starbucks'
+#  uriPattern: '<StarbucksSubroutes>'
+#  subRoutes:
+#    StarbucksSubroutes:
+#      package: Wwwision.Starbucks
+#                                                                        #
+
+-
+  name: 'Single payment actions'
+  uriPattern: 'order/{order}/payment/{payment}'
+  defaults:
+    '@package':    'Wwwision.Starbucks'
+    '@controller': 'Payment'
+
+-
+  name: 'Payment entry point'
+  uriPattern: 'order/{order}/payment'
+  defaults:
+    '@package':    'Wwwision.Starbucks'
+    '@controller': 'Payment'
+    '@action':     'index'
+
+-
+  name: 'Single order actions'
+  uriPattern: 'order/{order}'
+  defaults:
+    '@package':    'Wwwision.Starbucks'
+    '@controller': 'Order'
+    '@action':     'index'
+
+-
+  name: 'Order entry point'
+  uriPattern:      'order'
+  defaults:
+    '@package':    'Wwwision.Starbucks'
+    '@controller': 'Order'
+    '@action':     'index'

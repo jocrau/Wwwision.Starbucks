@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<order self="{f:uri.action(action: 'index', arguments: '{order: order}', absolute: true)}">
+	<drink>{order.drink.name}</drink>
+	<cost>{order.cost -> f:format.number()}</cost>
+	<f:if condition="{order.additions}">
+		<additions>
+			<f:for each="{order.additions}" as="addition">
+				<addition>{addition.name}</addition>
+			</f:for>
+		</additions>
+	</f:if>
+	<next xmlns="http://localhost/state-machine"
+		rel="http://localhost/payment"
+		href="{f:uri.action(action: 'index', controller: 'Payment', arguments: '{order: order}', absolute: true)}"
+		type="application/xml"
+	/>
+</order>

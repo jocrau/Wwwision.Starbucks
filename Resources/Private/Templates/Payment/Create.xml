@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<payment xmlns="http://starbucks.example.org/">
+	<cardNo>{payment.cardNo}</cardNo>
+	<expires>{payment.expires}</expires>
+	<name>{payment.name}</name>
+	<amount>{payment.amount -> f:format.number()}</amount>
+</payment>

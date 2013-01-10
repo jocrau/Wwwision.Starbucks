@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<order>
+	<drink>{order.drink.name}</drink>
+	<cost>{order.cost -> f:format.number()}</cost>
+	<f:if condition="{order.additions}">
+		<additions>
+			<f:for each="{order.additions}" as="addition">
+				<addition>{addition.name}</addition>
+			</f:for>
+		</additions>
+	</f:if>
+</order>

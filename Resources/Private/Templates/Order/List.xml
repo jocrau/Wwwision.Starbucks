@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<orders>
+	<f:for each="{orders}" as="order">
+		<order>
+			<link rel="self" href="{f:uri.action(action: 'index', arguments: '{order: order}', absolute: true)}" />
+			<name>{order.name -> f:format.htmlspecialchars()}</name>
+		</order>
+	</f:for>
+</orders>
