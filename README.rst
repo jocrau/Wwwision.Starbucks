@@ -92,13 +92,13 @@ The response should be something like:
 	Content-Type: application/vnd.wwwision.starbucks.order+xml
 
 	<?xml version="1.0" encoding="utf-8"?>
-	<order self="http://dev.flow.local/order/2a7a6fd9-fa6f-47e2-8976-7c8308a96e4c">
+	<order self="http://localhost/order/2a7a6fd9-fa6f-47e2-8976-7c8308a96e4c">
 		<drink>Latte</drink>
 		<cost>3.00</cost>
 
 		<next xmlns="http://localhost/state-machine"
 			rel="http://localhost/payment"
-			href="http://dev.flow.local/order/2a7a6fd9-fa6f-47e2-8976-7c8308a96e4c/payment"
+			href="http://localhost/order/2a7a6fd9-fa6f-47e2-8976-7c8308a96e4c/payment"
 			type="application/xml"
 		/>
 	</order>
@@ -109,7 +109,7 @@ Order Additions
 The second story is ``As a customer, I want to be able to change my drink to suit my taste``
 The article suggests to check the supported HTTP methods first. This can be done with following request::
 
-	curl -i -X OPTIONS http://dev.flow.local/order/2a7a6fd9-fa6f-47e2-8976-7c8308a96e4c
+	curl -i -X OPTIONS http://localhost/order/2a7a6fd9-fa6f-47e2-8976-7c8308a96e4c
 
 .. Note:: Replace ``2a7a6fd9-fa6f-47e2-8976-7c8308a96e4c`` with the UUID of the order returned in the previous response (and do the same in the following samples)
 
@@ -120,7 +120,7 @@ The article suggests to check the supported HTTP methods first. This can be done
 
 Now we can PUT an addition to our order like this::
 
-	curl -i -H "Accept: application/xml" -H "Content-Type: application/xml" -X PUT -d "<root><order><additions>shot</additions></order></root>" http://dev.flow.local/order/2a7a6fd9-fa6f-47e2-8976-7c8308a96e4c
+	curl -i -H "Accept: application/xml" -H "Content-Type: application/xml" -X PUT -d "<root><order><additions>shot</additions></order></root>" http://localhost/order/2a7a6fd9-fa6f-47e2-8976-7c8308a96e4c
 
 
 to be continued...
